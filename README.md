@@ -33,7 +33,7 @@ Sisteme eklenilecek kitapların **ISBN** numaraları ile kayıt edildiği, kayı
 <img width="400" height="400" src="https://imgur.com/mw9AJME.png"/>
 
 <h4 align="center">Ana Panel</h1>
-<img width="2200" height="400" src="https://imgur.com/pznGF9U.png"/>
+<img width="2200" height="800" src="https://imgur.com/pznGF9U.png"/>
 
 <h4 align="center">Çalışan Paneli</h1>
 <img width="2200" height="700" src="https://imgur.com/ZWWXztj.png"/>
