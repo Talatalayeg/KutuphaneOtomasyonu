@@ -33,7 +33,7 @@ Sisteme eklenilecek kitapların **ISBN** numaraları ile kayıt edildiği, kayı
 <img width="400" height="400" src="https://imgur.com/mw9AJME.png"/>
 
 <h4 align="center">Ana Panel</h1>
-<img width="2200" height="400" src="https://imgur.com/APakzGV.png"/>
+<img width="2200" height="400" src="https://imgur.com/pznGF9U.png"/>
 
 <h4 align="center">Çalışan Paneli</h1>
 <img width="2200" height="700" src="https://imgur.com/ZWWXztj.png"/>
@@ -41,8 +41,11 @@ Sisteme eklenilecek kitapların **ISBN** numaraları ile kayıt edildiği, kayı
 <h4 align="center">Üye Paneli</h1>
 <img width="2200" height="600" src="https://imgur.com/ksTQveu.png"/>
 
-<h4 align="center">Kitap Paneli</h1>
-<img width="2200" height="600" src="https://imgur.com/Hsh11Tm.png"/>
+<h4 align="center">Kitap Paneli(ISBN için Kamera Butonu)</h1>
+<img width="2200" height="600" src="https://imgur.com/FL4WuxZ.png"/>
 
 <h4 align="center">Kiralama Paneli</h1>
 <img width="2200" height="600" src="https://imgur.com/meyntaJ.png"/>
+
+<h4 align="center">Ödeme Paneli</h1>
+<img width="2200" height="600" src="https://imgur.com/KWo74XM.png"/>
