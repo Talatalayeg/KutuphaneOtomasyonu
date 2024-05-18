@@ -341,7 +341,7 @@
             this.MinimumSize = new System.Drawing.Size(1000, 670);
             this.Name = "Panelislemleri";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Panelislemleri";
+            this.Text = "TacemBook - Panelislemleri";
             this.Load += new System.EventHandler(this.Panelislemleri_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kiraliklarDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CezalilarDataGrid)).EndInit();

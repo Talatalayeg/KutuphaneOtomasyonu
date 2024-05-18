@@ -42,6 +42,7 @@
             this.cboDevice = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.isbnSiteCombo = new System.Windows.Forms.ComboBox();
             this.sitedenVeriCek = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
             this.ISBNReadButton = new System.Windows.Forms.Button();
@@ -118,7 +119,6 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.eklePaneli.SuspendLayout();
@@ -285,7 +285,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.listBox1);
+            this.groupBox2.Controls.Add(this.isbnSiteCombo);
             this.groupBox2.Controls.Add(this.sitedenVeriCek);
             this.groupBox2.Controls.Add(this.label40);
             this.groupBox2.Controls.Add(this.ISBNReadButton);
@@ -316,13 +316,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kitap Bilgileri";
             // 
+            // isbnSiteCombo
+            // 
+            this.isbnSiteCombo.FormattingEnabled = true;
+            this.isbnSiteCombo.Location = new System.Drawing.Point(859, 89);
+            this.isbnSiteCombo.Name = "isbnSiteCombo";
+            this.isbnSiteCombo.Size = new System.Drawing.Size(121, 21);
+            this.isbnSiteCombo.TabIndex = 17;
+            // 
             // sitedenVeriCek
             // 
-            this.sitedenVeriCek.Location = new System.Drawing.Point(861, 39);
+            this.sitedenVeriCek.Location = new System.Drawing.Point(859, 41);
             this.sitedenVeriCek.Name = "sitedenVeriCek";
             this.sitedenVeriCek.Size = new System.Drawing.Size(138, 37);
             this.sitedenVeriCek.TabIndex = 16;
-            this.sitedenVeriCek.Text = "Siteden Çek";
+            this.sitedenVeriCek.Text = "Siteden Veri Çek";
             this.sitedenVeriCek.UseVisualStyleBackColor = true;
             this.sitedenVeriCek.Click += new System.EventHandler(this.sitedenVeriCek_Click);
             // 
@@ -331,7 +339,7 @@
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label40.ForeColor = System.Drawing.Color.Green;
-            this.label40.Location = new System.Drawing.Point(888, 15);
+            this.label40.Location = new System.Drawing.Point(873, 15);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(66, 18);
             this.label40.TabIndex = 15;
@@ -344,7 +352,7 @@
             this.ISBNReadButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ISBNReadButton.ForeColor = System.Drawing.Color.Transparent;
             this.ISBNReadButton.Image = global::KutuphaneOtomasyonu.Properties.Resources.camera_44;
-            this.ISBNReadButton.Location = new System.Drawing.Point(805, 23);
+            this.ISBNReadButton.Location = new System.Drawing.Point(790, 16);
             this.ISBNReadButton.Name = "ISBNReadButton";
             this.ISBNReadButton.Size = new System.Drawing.Size(50, 50);
             this.ISBNReadButton.TabIndex = 14;
@@ -1060,14 +1068,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(37, 62);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(550, 329);
-            this.listBox1.TabIndex = 17;
-            // 
             // KitapPaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1083,7 +1083,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KitapPaneli";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "KitapPaneli";
+            this.Text = "TacemBook - KitapPaneli";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.KitapPaneli_FormClosing);
             this.Load += new System.EventHandler(this.KitapPaneli_Load);
             this.panel2.ResumeLayout(false);
@@ -1202,6 +1202,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Button sitedenVeriCek;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ComboBox isbnSiteCombo;
     }
 }

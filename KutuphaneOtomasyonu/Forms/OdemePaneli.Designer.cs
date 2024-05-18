@@ -36,6 +36,7 @@
             this.ListeleButonu = new System.Windows.Forms.Button();
             this.S_OdemeButonu = new System.Windows.Forms.Button();
             this.CezaOdemePaneli = new System.Windows.Forms.Panel();
+            this.cezalilarCheckBox = new System.Windows.Forms.CheckBox();
             this.G_TcAraTXT = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,21 +51,20 @@
             this.BirKisminiOdeButonu = new System.Windows.Forms.Button();
             this.TamaminiOdeButonu = new System.Windows.Forms.Button();
             this.CezalilarDataGrid = new System.Windows.Forms.DataGridView();
-            this.cezalilarCheckBox = new System.Windows.Forms.CheckBox();
             this.GecmisPaneli = new System.Windows.Forms.Panel();
             this.odemeNoTXT = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.OdemeGecmisiDataGrid = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.CezaOdemePaneli.SuspendLayout();
@@ -172,6 +172,18 @@
             this.CezaOdemePaneli.Name = "CezaOdemePaneli";
             this.CezaOdemePaneli.Size = new System.Drawing.Size(1060, 580);
             this.CezaOdemePaneli.TabIndex = 14;
+            // 
+            // cezalilarCheckBox
+            // 
+            this.cezalilarCheckBox.AutoSize = true;
+            this.cezalilarCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cezalilarCheckBox.Location = new System.Drawing.Point(276, 14);
+            this.cezalilarCheckBox.Name = "cezalilarCheckBox";
+            this.cezalilarCheckBox.Size = new System.Drawing.Size(138, 22);
+            this.cezalilarCheckBox.TabIndex = 30;
+            this.cezalilarCheckBox.Text = "Sadece Cezalılar";
+            this.cezalilarCheckBox.UseVisualStyleBackColor = true;
+            this.cezalilarCheckBox.CheckedChanged += new System.EventHandler(this.cezalilarCheckBox_CheckedChanged);
             // 
             // G_TcAraTXT
             // 
@@ -313,18 +325,6 @@
             this.CezalilarDataGrid.TabIndex = 1;
             this.CezalilarDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CezalilarDataGrid_CellContentClick);
             // 
-            // cezalilarCheckBox
-            // 
-            this.cezalilarCheckBox.AutoSize = true;
-            this.cezalilarCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cezalilarCheckBox.Location = new System.Drawing.Point(276, 14);
-            this.cezalilarCheckBox.Name = "cezalilarCheckBox";
-            this.cezalilarCheckBox.Size = new System.Drawing.Size(138, 22);
-            this.cezalilarCheckBox.TabIndex = 30;
-            this.cezalilarCheckBox.Text = "Sadece Cezalılar";
-            this.cezalilarCheckBox.UseVisualStyleBackColor = true;
-            this.cezalilarCheckBox.CheckedChanged += new System.EventHandler(this.cezalilarCheckBox_CheckedChanged);
-            // 
             // GecmisPaneli
             // 
             this.GecmisPaneli.Controls.Add(this.odemeNoTXT);
@@ -363,6 +363,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ödeme Bilgileri";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Location = new System.Drawing.Point(170, 209);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 15);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "12";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -372,6 +382,16 @@
             this.label5.Size = new System.Drawing.Size(14, 15);
             this.label5.TabIndex = 17;
             this.label5.Text = "5";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label14.Location = new System.Drawing.Point(164, 41);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(21, 15);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "14";
             // 
             // label6
             // 
@@ -383,6 +403,16 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "6";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(30, 209);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(124, 18);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Ödenen Tarihi :";
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -392,6 +422,16 @@
             this.label7.Size = new System.Drawing.Size(117, 18);
             this.label7.TabIndex = 13;
             this.label7.Text = "Ödenen Ceza :";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(49, 38);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(97, 18);
+            this.label13.TabIndex = 13;
+            this.label13.Text = "Ödeme No :";
             // 
             // label9
             // 
@@ -432,46 +472,6 @@
             this.OdemeGecmisiDataGrid.TabIndex = 1;
             this.OdemeGecmisiDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OdemeGecmisiDataGrid_CellContentClick);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(30, 209);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 18);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Ödenen Tarihi :";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(170, 209);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(21, 15);
-            this.label12.TabIndex = 17;
-            this.label12.Text = "12";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(49, 38);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(97, 18);
-            this.label13.TabIndex = 13;
-            this.label13.Text = "Ödeme No :";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(164, 41);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(21, 15);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "14";
-            // 
             // OdemePaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -482,7 +482,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "OdemePaneli";
-            this.Text = "OdemePaneli";
+            this.Text = "TacemBook - OdemePaneli";
             this.Load += new System.EventHandler(this.OdemePaneli_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

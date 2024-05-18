@@ -39,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.eklePaneli = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.C_AdiTXT = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -48,19 +47,20 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.radioK = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.radioE = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.C_AdiTXT = new System.Windows.Forms.TextBox();
             this.C_SoyadiTXT = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.radioE = new System.Windows.Forms.RadioButton();
+            this.radioK = new System.Windows.Forms.RadioButton();
             this.C_KimlikNoTXT = new System.Windows.Forms.TextBox();
-            this.C_AdresTXT = new System.Windows.Forms.TextBox();
             this.C_KullaniciAdiTXT = new System.Windows.Forms.TextBox();
-            this.C_EpostaTXT = new System.Windows.Forms.TextBox();
             this.C_SifreTXT = new System.Windows.Forms.TextBox();
             this.C_TelnoTXT = new System.Windows.Forms.TextBox();
+            this.C_EpostaTXT = new System.Windows.Forms.TextBox();
+            this.C_AdresTXT = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.E_ListeleDataGridView = new System.Windows.Forms.DataGridView();
             this.KaydetButonu = new System.Windows.Forms.Button();
@@ -79,12 +79,12 @@
             this.KaldirmaButonu = new System.Windows.Forms.Button();
             this.KaldirDataGrid = new System.Windows.Forms.DataGridView();
             this.guncellePaneli = new System.Windows.Forms.Panel();
+            this.G_TcAraTXT = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.kadinRadio = new System.Windows.Forms.RadioButton();
             this.label20 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -92,17 +92,17 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.erkekRadio = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
-            this.adresGuncelleTXT = new System.Windows.Forms.TextBox();
             this.adGuncelleTXT = new System.Windows.Forms.TextBox();
-            this.epostaGuncelleTXT = new System.Windows.Forms.TextBox();
             this.soyadGuncelleTXT = new System.Windows.Forms.TextBox();
-            this.telnoGuncelleTXT = new System.Windows.Forms.TextBox();
             this.tcnoGuncelleTXT = new System.Windows.Forms.TextBox();
-            this.sifreGuncelleTXT = new System.Windows.Forms.TextBox();
+            this.erkekRadio = new System.Windows.Forms.RadioButton();
+            this.kadinRadio = new System.Windows.Forms.RadioButton();
             this.K_adGuncelleTXT = new System.Windows.Forms.TextBox();
-            this.G_TcAraTXT = new System.Windows.Forms.TextBox();
+            this.sifreGuncelleTXT = new System.Windows.Forms.TextBox();
+            this.telnoGuncelleTXT = new System.Windows.Forms.TextBox();
+            this.epostaGuncelleTXT = new System.Windows.Forms.TextBox();
+            this.adresGuncelleTXT = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.GuncellemeButonu = new System.Windows.Forms.Button();
@@ -285,15 +285,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Çalışan Bilgileri";
             // 
-            // C_AdiTXT
-            // 
-            this.C_AdiTXT.Location = new System.Drawing.Point(149, 23);
-            this.C_AdiTXT.MaxLength = 50;
-            this.C_AdiTXT.Name = "C_AdiTXT";
-            this.C_AdiTXT.Size = new System.Drawing.Size(156, 20);
-            this.C_AdiTXT.TabIndex = 2;
-            this.C_AdiTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.C_AdiTXT_KeyPress);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -377,16 +368,15 @@
             this.label34.TabIndex = 1;
             this.label34.Text = "TC Kimlik No :";
             // 
-            // radioK
+            // label12
             // 
-            this.radioK.AutoSize = true;
-            this.radioK.Location = new System.Drawing.Point(236, 100);
-            this.radioK.Name = "radioK";
-            this.radioK.Size = new System.Drawing.Size(52, 17);
-            this.radioK.TabIndex = 9;
-            this.radioK.TabStop = true;
-            this.radioK.Text = "Kadın";
-            this.radioK.UseVisualStyleBackColor = true;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(74, 351);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(60, 18);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Adres :";
             // 
             // label9
             // 
@@ -397,17 +387,6 @@
             this.label9.Size = new System.Drawing.Size(54, 18);
             this.label9.TabIndex = 1;
             this.label9.Text = "Şifre :";
-            // 
-            // radioE
-            // 
-            this.radioE.AutoSize = true;
-            this.radioE.Location = new System.Drawing.Point(160, 99);
-            this.radioE.Name = "radioE";
-            this.radioE.Size = new System.Drawing.Size(53, 17);
-            this.radioE.TabIndex = 8;
-            this.radioE.TabStop = true;
-            this.radioE.Text = "Erkek";
-            this.radioE.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -429,6 +408,15 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "E-Posta :";
             // 
+            // C_AdiTXT
+            // 
+            this.C_AdiTXT.Location = new System.Drawing.Point(149, 23);
+            this.C_AdiTXT.MaxLength = 50;
+            this.C_AdiTXT.Name = "C_AdiTXT";
+            this.C_AdiTXT.Size = new System.Drawing.Size(156, 20);
+            this.C_AdiTXT.TabIndex = 2;
+            this.C_AdiTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.C_AdiTXT_KeyPress);
+            // 
             // C_SoyadiTXT
             // 
             this.C_SoyadiTXT.Location = new System.Drawing.Point(149, 59);
@@ -438,15 +426,27 @@
             this.C_SoyadiTXT.TabIndex = 2;
             this.C_SoyadiTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.C_SoyadiTXT_KeyPress);
             // 
-            // label12
+            // radioE
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(74, 351);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 18);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Adres :";
+            this.radioE.AutoSize = true;
+            this.radioE.Location = new System.Drawing.Point(160, 99);
+            this.radioE.Name = "radioE";
+            this.radioE.Size = new System.Drawing.Size(53, 17);
+            this.radioE.TabIndex = 8;
+            this.radioE.TabStop = true;
+            this.radioE.Text = "Erkek";
+            this.radioE.UseVisualStyleBackColor = true;
+            // 
+            // radioK
+            // 
+            this.radioK.AutoSize = true;
+            this.radioK.Location = new System.Drawing.Point(236, 100);
+            this.radioK.Name = "radioK";
+            this.radioK.Size = new System.Drawing.Size(52, 17);
+            this.radioK.TabIndex = 9;
+            this.radioK.TabStop = true;
+            this.radioK.Text = "Kadın";
+            this.radioK.UseVisualStyleBackColor = true;
             // 
             // C_KimlikNoTXT
             // 
@@ -457,16 +457,6 @@
             this.C_KimlikNoTXT.TabIndex = 2;
             this.C_KimlikNoTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.C_KimlikNoTXT_KeyPress);
             // 
-            // C_AdresTXT
-            // 
-            this.C_AdresTXT.Location = new System.Drawing.Point(149, 351);
-            this.C_AdresTXT.MaxLength = 1000;
-            this.C_AdresTXT.Multiline = true;
-            this.C_AdresTXT.Name = "C_AdresTXT";
-            this.C_AdresTXT.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.C_AdresTXT.Size = new System.Drawing.Size(156, 131);
-            this.C_AdresTXT.TabIndex = 6;
-            // 
             // C_KullaniciAdiTXT
             // 
             this.C_KullaniciAdiTXT.Location = new System.Drawing.Point(149, 175);
@@ -474,14 +464,6 @@
             this.C_KullaniciAdiTXT.Name = "C_KullaniciAdiTXT";
             this.C_KullaniciAdiTXT.Size = new System.Drawing.Size(156, 20);
             this.C_KullaniciAdiTXT.TabIndex = 2;
-            // 
-            // C_EpostaTXT
-            // 
-            this.C_EpostaTXT.Location = new System.Drawing.Point(149, 308);
-            this.C_EpostaTXT.MaxLength = 50;
-            this.C_EpostaTXT.Name = "C_EpostaTXT";
-            this.C_EpostaTXT.Size = new System.Drawing.Size(156, 20);
-            this.C_EpostaTXT.TabIndex = 2;
             // 
             // C_SifreTXT
             // 
@@ -499,6 +481,24 @@
             this.C_TelnoTXT.Size = new System.Drawing.Size(156, 20);
             this.C_TelnoTXT.TabIndex = 2;
             this.C_TelnoTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.C_TelnoTXT_KeyPress);
+            // 
+            // C_EpostaTXT
+            // 
+            this.C_EpostaTXT.Location = new System.Drawing.Point(149, 308);
+            this.C_EpostaTXT.MaxLength = 50;
+            this.C_EpostaTXT.Name = "C_EpostaTXT";
+            this.C_EpostaTXT.Size = new System.Drawing.Size(156, 20);
+            this.C_EpostaTXT.TabIndex = 2;
+            // 
+            // C_AdresTXT
+            // 
+            this.C_AdresTXT.Location = new System.Drawing.Point(149, 351);
+            this.C_AdresTXT.MaxLength = 1000;
+            this.C_AdresTXT.Multiline = true;
+            this.C_AdresTXT.Name = "C_AdresTXT";
+            this.C_AdresTXT.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.C_AdresTXT.Size = new System.Drawing.Size(156, 131);
+            this.C_AdresTXT.TabIndex = 6;
             // 
             // label15
             // 
@@ -686,6 +686,16 @@
             this.guncellePaneli.Size = new System.Drawing.Size(1060, 580);
             this.guncellePaneli.TabIndex = 1;
             // 
+            // G_TcAraTXT
+            // 
+            this.G_TcAraTXT.Location = new System.Drawing.Point(533, 16);
+            this.G_TcAraTXT.MaxLength = 11;
+            this.G_TcAraTXT.Name = "G_TcAraTXT";
+            this.G_TcAraTXT.Size = new System.Drawing.Size(126, 20);
+            this.G_TcAraTXT.TabIndex = 28;
+            this.G_TcAraTXT.TextChanged += new System.EventHandler(this.G_TcAraTXT_TextChanged);
+            this.G_TcAraTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.G_TcAraTXT_KeyPress);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label29);
@@ -756,17 +766,6 @@
             this.label27.Size = new System.Drawing.Size(54, 18);
             this.label27.TabIndex = 10;
             this.label27.Text = "Şifre :";
-            // 
-            // kadinRadio
-            // 
-            this.kadinRadio.AutoSize = true;
-            this.kadinRadio.Location = new System.Drawing.Point(261, 135);
-            this.kadinRadio.Name = "kadinRadio";
-            this.kadinRadio.Size = new System.Drawing.Size(52, 17);
-            this.kadinRadio.TabIndex = 22;
-            this.kadinRadio.TabStop = true;
-            this.kadinRadio.Text = "Kadın";
-            this.kadinRadio.UseVisualStyleBackColor = true;
             // 
             // label20
             // 
@@ -841,6 +840,41 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "E-Posta :";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(95, 347);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 18);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Adres :";
+            // 
+            // adGuncelleTXT
+            // 
+            this.adGuncelleTXT.Location = new System.Drawing.Point(170, 23);
+            this.adGuncelleTXT.Name = "adGuncelleTXT";
+            this.adGuncelleTXT.Size = new System.Drawing.Size(156, 20);
+            this.adGuncelleTXT.TabIndex = 14;
+            this.adGuncelleTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.adGuncelleTXT_KeyPress);
+            // 
+            // soyadGuncelleTXT
+            // 
+            this.soyadGuncelleTXT.Location = new System.Drawing.Point(170, 59);
+            this.soyadGuncelleTXT.Name = "soyadGuncelleTXT";
+            this.soyadGuncelleTXT.Size = new System.Drawing.Size(156, 20);
+            this.soyadGuncelleTXT.TabIndex = 15;
+            this.soyadGuncelleTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soyadGuncelleTXT_KeyPress);
+            // 
+            // tcnoGuncelleTXT
+            // 
+            this.tcnoGuncelleTXT.Location = new System.Drawing.Point(168, 98);
+            this.tcnoGuncelleTXT.MaxLength = 11;
+            this.tcnoGuncelleTXT.Name = "tcnoGuncelleTXT";
+            this.tcnoGuncelleTXT.Size = new System.Drawing.Size(156, 20);
+            this.tcnoGuncelleTXT.TabIndex = 16;
+            this.tcnoGuncelleTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tcnoGuncelleTXT_KeyPress);
+            // 
             // erkekRadio
             // 
             this.erkekRadio.AutoSize = true;
@@ -852,46 +886,30 @@
             this.erkekRadio.Text = "Erkek";
             this.erkekRadio.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // kadinRadio
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Rockwell", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(95, 347);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 18);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Adres :";
+            this.kadinRadio.AutoSize = true;
+            this.kadinRadio.Location = new System.Drawing.Point(261, 135);
+            this.kadinRadio.Name = "kadinRadio";
+            this.kadinRadio.Size = new System.Drawing.Size(52, 17);
+            this.kadinRadio.TabIndex = 22;
+            this.kadinRadio.TabStop = true;
+            this.kadinRadio.Text = "Kadın";
+            this.kadinRadio.UseVisualStyleBackColor = true;
             // 
-            // adresGuncelleTXT
+            // K_adGuncelleTXT
             // 
-            this.adresGuncelleTXT.Location = new System.Drawing.Point(170, 347);
-            this.adresGuncelleTXT.Multiline = true;
-            this.adresGuncelleTXT.Name = "adresGuncelleTXT";
-            this.adresGuncelleTXT.Size = new System.Drawing.Size(156, 131);
-            this.adresGuncelleTXT.TabIndex = 20;
+            this.K_adGuncelleTXT.Location = new System.Drawing.Point(170, 171);
+            this.K_adGuncelleTXT.Name = "K_adGuncelleTXT";
+            this.K_adGuncelleTXT.Size = new System.Drawing.Size(156, 20);
+            this.K_adGuncelleTXT.TabIndex = 16;
             // 
-            // adGuncelleTXT
+            // sifreGuncelleTXT
             // 
-            this.adGuncelleTXT.Location = new System.Drawing.Point(170, 23);
-            this.adGuncelleTXT.Name = "adGuncelleTXT";
-            this.adGuncelleTXT.Size = new System.Drawing.Size(156, 20);
-            this.adGuncelleTXT.TabIndex = 14;
-            this.adGuncelleTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.adGuncelleTXT_KeyPress);
-            // 
-            // epostaGuncelleTXT
-            // 
-            this.epostaGuncelleTXT.Location = new System.Drawing.Point(170, 304);
-            this.epostaGuncelleTXT.Name = "epostaGuncelleTXT";
-            this.epostaGuncelleTXT.Size = new System.Drawing.Size(156, 20);
-            this.epostaGuncelleTXT.TabIndex = 19;
-            // 
-            // soyadGuncelleTXT
-            // 
-            this.soyadGuncelleTXT.Location = new System.Drawing.Point(170, 59);
-            this.soyadGuncelleTXT.Name = "soyadGuncelleTXT";
-            this.soyadGuncelleTXT.Size = new System.Drawing.Size(156, 20);
-            this.soyadGuncelleTXT.TabIndex = 15;
-            this.soyadGuncelleTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.soyadGuncelleTXT_KeyPress);
+            this.sifreGuncelleTXT.Location = new System.Drawing.Point(170, 213);
+            this.sifreGuncelleTXT.Name = "sifreGuncelleTXT";
+            this.sifreGuncelleTXT.Size = new System.Drawing.Size(156, 20);
+            this.sifreGuncelleTXT.TabIndex = 17;
             // 
             // telnoGuncelleTXT
             // 
@@ -902,38 +920,20 @@
             this.telnoGuncelleTXT.TabIndex = 18;
             this.telnoGuncelleTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.telnoGuncelleTXT_KeyPress);
             // 
-            // tcnoGuncelleTXT
+            // epostaGuncelleTXT
             // 
-            this.tcnoGuncelleTXT.Location = new System.Drawing.Point(168, 98);
-            this.tcnoGuncelleTXT.MaxLength = 11;
-            this.tcnoGuncelleTXT.Name = "tcnoGuncelleTXT";
-            this.tcnoGuncelleTXT.Size = new System.Drawing.Size(156, 20);
-            this.tcnoGuncelleTXT.TabIndex = 16;
-            this.tcnoGuncelleTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tcnoGuncelleTXT_KeyPress);
+            this.epostaGuncelleTXT.Location = new System.Drawing.Point(170, 304);
+            this.epostaGuncelleTXT.Name = "epostaGuncelleTXT";
+            this.epostaGuncelleTXT.Size = new System.Drawing.Size(156, 20);
+            this.epostaGuncelleTXT.TabIndex = 19;
             // 
-            // sifreGuncelleTXT
+            // adresGuncelleTXT
             // 
-            this.sifreGuncelleTXT.Location = new System.Drawing.Point(170, 213);
-            this.sifreGuncelleTXT.Name = "sifreGuncelleTXT";
-            this.sifreGuncelleTXT.Size = new System.Drawing.Size(156, 20);
-            this.sifreGuncelleTXT.TabIndex = 17;
-            // 
-            // K_adGuncelleTXT
-            // 
-            this.K_adGuncelleTXT.Location = new System.Drawing.Point(170, 171);
-            this.K_adGuncelleTXT.Name = "K_adGuncelleTXT";
-            this.K_adGuncelleTXT.Size = new System.Drawing.Size(156, 20);
-            this.K_adGuncelleTXT.TabIndex = 16;
-            // 
-            // G_TcAraTXT
-            // 
-            this.G_TcAraTXT.Location = new System.Drawing.Point(533, 16);
-            this.G_TcAraTXT.MaxLength = 11;
-            this.G_TcAraTXT.Name = "G_TcAraTXT";
-            this.G_TcAraTXT.Size = new System.Drawing.Size(126, 20);
-            this.G_TcAraTXT.TabIndex = 28;
-            this.G_TcAraTXT.TextChanged += new System.EventHandler(this.G_TcAraTXT_TextChanged);
-            this.G_TcAraTXT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.G_TcAraTXT_KeyPress);
+            this.adresGuncelleTXT.Location = new System.Drawing.Point(170, 347);
+            this.adresGuncelleTXT.Multiline = true;
+            this.adresGuncelleTXT.Name = "adresGuncelleTXT";
+            this.adresGuncelleTXT.Size = new System.Drawing.Size(156, 131);
+            this.adresGuncelleTXT.TabIndex = 20;
             // 
             // label22
             // 
@@ -1039,7 +1039,7 @@
             this.MinimumSize = new System.Drawing.Size(1200, 720);
             this.Name = "CalisanPaneli";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Calisan Islem Paneli";
+            this.Text = "TacemBook - Çalışan Paneli";
             this.Load += new System.EventHandler(this.CalisanPaneli_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

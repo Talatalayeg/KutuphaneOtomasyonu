@@ -19,11 +19,11 @@ namespace KutuphaneOtomasyonu
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Application.Run(new Panelislemleri());
-            //Application.Run(new GirisPaneli());
+            Application.Run(new GirisPaneli());
 
             //Application.Run(new CalisanPaneli());
             //Application.Run(new UyePaneli());
-            Application.Run(new KitapPaneli());
+            //Application.Run(new KitapPaneli());
 
             //Application.Run(new KiralamaPaneli());
             //Application.Run(new OdemePaneli());

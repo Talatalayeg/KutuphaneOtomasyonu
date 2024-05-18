@@ -131,7 +131,7 @@
             this.MinimumSize = new System.Drawing.Size(500, 550);
             this.Name = "GirisPaneli";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Giris Paneli";
+            this.Text = "TacemBook - Giris Paneli";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -9,11 +9,13 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.NetworkInformation;
+using System.Security.Policy;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
 
-using HtmlAgilityPack;
 
 using ZXing;
 using ZXing.Rendering;
@@ -22,8 +24,10 @@ using ZXing.Presentation;
 using AForge;
 using AForge.Video;
 using AForge.Video.DirectShow;
-using System.Security.Policy;
+
 using static System.Net.WebRequestMethods;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using System.Data.Entity.Validation;
 
 namespace KutuphaneOtomasyonu.Forms
 {
@@ -31,9 +35,7 @@ namespace KutuphaneOtomasyonu.Forms
     {
         public string KitapPaneliKullaniciRolu;
         public string KitapPaneliKullaniciAdi;
-
-        public String html;
-        public Uri url;
+        public bool baglantiVar = false;
 
         FilterInfoCollection filterInfoCollection;
         VideoCaptureDevice captureDevice;
@@ -81,15 +83,18 @@ namespace KutuphaneOtomasyonu.Forms
         private void temizle()
         {
             K_AdiTXT.Text = "";
-            K_ISBNTXT.Text = "";
             K_YazariTXT.Text = "";
-            K_DiliTXT.Text = "";
-            K_SayfasayisiTXT.Text = "";
-            K_BasimyiliTXT.Text = "";
             K_YayineviTXT.Text = "";
+            K_BasimyiliTXT.Text = "";
+            K_ISBNTXT.Text = "";
+            K_DiliTXT.Text = "";
             K_CevirmenTXT.Text = "";
+            K_SayfasayisiTXT.Text = "";
 
             comboBox1.Items.Clear();
+            isbnSiteCombo.Items.Clear();
+            isbnSiteCombo.Items.Add("Google Books");
+            isbnSiteCombo.Items.Add("ISBNDB");
 
             label3.Text = "";
             label4.Text = "";
@@ -113,7 +118,7 @@ namespace KutuphaneOtomasyonu.Forms
             ListeleDataGridView.Columns[11].Visible = false;
         }
 
-        private void KitapPaneli_Load(object sender, EventArgs e)
+        public void KitapPaneli_Load(object sender, EventArgs e)
         {
             filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filterInfo in filterInfoCollection)
@@ -141,7 +146,6 @@ namespace KutuphaneOtomasyonu.Forms
         }
 
         //internet bağlantısı kontrolü
-
         #region
 
         private void NetworkChange_NetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
@@ -155,12 +159,14 @@ namespace KutuphaneOtomasyonu.Forms
             if (NetworkInterface.GetIsNetworkAvailable())
             {
                 // İnternet bağlantısı varsa, çevrimiçi simgesini yükle
+                baglantiVar = true;
                 label40.Text = "Bağlantı Çevrimiçi";
                 label40.ForeColor = Color.Green;
             }
             else
             {
                 // İnternet bağlantısı yoksa, çevrimdışı simgesini yükle
+                baglantiVar = false;
                 label40.Text = "Bağlantı Yok";
                 label40.ForeColor = Color.Red;
             }
@@ -215,8 +221,21 @@ namespace KutuphaneOtomasyonu.Forms
 
                     yeniKitap.Kitap_EklenmeTarihi = bugun;
 
-                    db.KitapBilgileri.Add(yeniKitap);
-                    db.SaveChanges();
+                    try
+                    {
+                        db.KitapBilgileri.Add(yeniKitap);
+                        db.SaveChanges();
+                    }
+                    catch (DbEntityValidationException ex)
+                    {
+                        foreach (var entityValidationErrors in ex.EntityValidationErrors)
+                        {
+                            foreach (var validationError in entityValidationErrors.ValidationErrors)
+                            {
+                                MessageBox.Show("Property: " + validationError.PropertyName + " Error: " + validationError.ErrorMessage);
+                            }
+                        }
+                    }
 
 
                     MessageBox.Show(yeniKitap.Kitap_Adi + " adlı kitap başarıyla kaydedildi...", "Başarılı", MessageBoxButtons.OK);
@@ -233,7 +252,6 @@ namespace KutuphaneOtomasyonu.Forms
         }
 
         //Kamera ile ISBN Okuma
-
         #region
 
         private void ISBNReadButton_Click(object sender, EventArgs e)
@@ -275,124 +293,174 @@ namespace KutuphaneOtomasyonu.Forms
 
         #endregion
 
-        //api ile siteden veri çekme
-        private void sitedenVeriCek_Click(object sender, EventArgs e)
+        //google api ile siteden veri çekme
+        private async void sitedenVeriCek_Click(object sender, EventArgs e)
         {
-            string isbnNo = K_ISBNTXT.Text.ToString();
-            string linkUrl = "https://isbnsearch.org/isbn/" + isbnNo;
-
-
-            VeriAl("https://isbnsearch.org/isbn/9789750718533", "//*[@id='book']/div[2]/p[6]/strong", listBox1);
-        }
-
-        public void VeriAl(String Url, String XPath,ListBox CikanSonuc)
-        {
-            //url = new Uri(Url);
-            try
+            string isbn = K_ISBNTXT.Text.Trim();
+            if(K_ISBNTXT == null || K_ISBNTXT.TextLength != 13 || K_ISBNTXT.Text == "" || K_ISBNTXT.Text == null)
             {
-                url = new Uri(Url);
+                MessageBox.Show("Aranacak Kitabın ISBN Numarasını Giriniz..."
+                                , "Hata"
+                                , MessageBoxButtons.OK
+                                , MessageBoxIcon.Error);
             }
-            catch (UriFormatException)
+            else
             {
-                if (MessageBox.Show("Hatalı Url", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
+                if (baglantiVar != true)
                 {
+                    MessageBox.Show("İnternet Bağlantısı Bulunmamaktadır..."
+                                    , "Hata"
+                                    , MessageBoxButtons.OK
+                                    , MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string selectedText = isbnSiteCombo.SelectedItem.ToString();
+                    if (selectedText == "ISBNDB")//ISBNDB
+                    {
+                        string baslik = "", yazar = "1", dil = "", yayinevi = "", yayinlanmaTarihi = "", yayinlanmaYili;
+                        int sayfaSayisi = 0;
 
+                        //ISBNDB apikey
+                        string ISBNapiKey = "53375_86d96560e3a2500a2848943e4281bfca";
+
+                        string WEBSERVICE_URL = "https://api2.isbndb.com/book/" + isbn;
+
+                        try
+                        {
+                            var webRequest = WebRequest.Create(WEBSERVICE_URL);
+
+                            if (webRequest != null)
+                            {
+                                webRequest.Method = "GET";
+                                webRequest.ContentType = "application/json";
+                                webRequest.Headers["Authorization"] = ISBNapiKey;
+
+                                //Get the response 
+                                WebResponse wr = webRequest.GetResponseAsync().Result;
+                                Stream receiveStream = wr.GetResponseStream();
+                                StreamReader reader = new StreamReader(receiveStream);
+
+                                string content = reader.ReadToEnd();
+
+                                JObject json = JObject.Parse(content); 
+                                JObject items = (JObject)json["book"];
+                                JObject bookObject = (JObject)json["book"];
+
+                                baslik = items["title"].ToString();
+                                yayinevi = items["publisher"].ToString(); 
+                                yazar = items["authors"] != null ? items["authors"].ToString() : " ";
+                                yazar = yazar.Substring(6);
+                                yazar = yazar.Substring(0, yazar.Length - 4);
+                                sayfaSayisi = items["pages"] != null ? (int)items["pages"] : 0;
+                                dil = items["language"] != null ? items["language"].ToString() : " ";
+                                yayinlanmaTarihi = items["date_published"] != null ? items["date_published"].ToString() : " ";
+
+                                //Onay Kutusu
+                                DialogResult onay = MessageBox.Show("ISBN Numarası = " + isbn + "\n" +
+                                                                    "Kitap Adı = " + baslik + "\n" +
+                                                                    "Sayfa Sayısı = " + sayfaSayisi + "\n" +
+                                                                    "Yazar(lar) = " + yazar + "\n" +
+                                                                    "Dil = " + dil + "\n" +
+                                                                    "Yayınevi = " + yayinevi + "\n" +
+                                                                    "Basım Tarihi = " + yayinlanmaTarihi + "\n" +
+                                                                    "Yerleştirme İşlemini Onaylıyor Musunuz?"
+                                                                    , "Onaylama İşlemi"
+                                                                    , MessageBoxButtons.YesNo);
+                                if (onay == DialogResult.Yes)
+                            {
+                                K_AdiTXT.Text = baslik;
+                                K_YazariTXT.Text = yazar;
+                                K_YayineviTXT.Text = yayinevi;
+
+                                DateTime date = DateTime.Parse(yayinlanmaTarihi);
+                                yayinlanmaYili = date.Year.ToString();
+
+                                K_BasimyiliTXT.Text = yayinlanmaYili;
+                                K_DiliTXT.Text = dil;
+                                K_SayfasayisiTXT.Text = sayfaSayisi.ToString();
+                            }
+                            else if (onay == DialogResult.No)
+                            {
+                                K_ISBNTXT.Text = "";
+                                temizle();
+                            }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.ToString());
+                        }
+                    }
+                    else if (selectedText == "Google Books")//GOOGLE BOOKS
+                    {
+                        //Google api key
+                        string googleapiKey = "AIzaSyDQFs40RX94VPXKF7-PSgvSDx852ywgmj4";
+                        //isbn numarası
+                        string url = $"https://www.googleapis.com/books/v1/volumes?q=isbn:{isbn}&key={googleapiKey}";
+
+                        string baslik = "", yazar = "", dil = "", yayinevi = "", yayinlanmaTarihi = "", yayinlanmaYili;
+                        int sayfaSayisi = 0;
+
+                        using (HttpClient client = new HttpClient())
+                        {
+                            HttpResponseMessage response = await client.GetAsync(url);
+                            response.EnsureSuccessStatusCode();
+                            string responseBody = await response.Content.ReadAsStringAsync();
+
+                            JObject json = JObject.Parse(responseBody);
+                            JArray items = (JArray)json["items"];
+
+                            foreach (var item in items)
+                            {
+                                baslik = item["volumeInfo"]["title"].ToString();
+                                sayfaSayisi = item["volumeInfo"]["pageCount"] != null ? (int)item["volumeInfo"]["pageCount"] : 0;
+                                yazar = item["volumeInfo"]["authors"] != null ? string.Join(", ", item["volumeInfo"]["authors"]) : " ";
+                                dil = item["volumeInfo"]["language"] != null ? item["volumeInfo"]["language"].ToString() : " ";
+                                yayinevi = item["volumeInfo"]["publisher"] != null ? item["volumeInfo"]["publisher"].ToString() : " ";
+                                yayinlanmaTarihi = item["volumeInfo"]["publishedDate"] != null ? item["volumeInfo"]["publishedDate"].ToString() : " ";
+                            }
+
+                            //Onay Kutusu
+                            DialogResult onay = MessageBox.Show("ISBN Numarası = " + isbn + "\n" +
+                                                                "Kitap Adı = " + baslik + "\n" +
+                                                                "Sayfa Sayısı = " + sayfaSayisi + "\n" +
+                                                                "Yazar(lar) = " + yazar + "\n" +
+                                                                "Dil = " + dil + "\n" +
+                                                                "Yayınevi = " + yayinevi + "\n" +
+                                                                "Basım Tarihi = " + yayinlanmaTarihi + "\n" +
+                                                                "Yerleştirme İşlemini Onaylıyor Musunuz?"
+                                                                , "Onaylama İşlemi"
+                                                                , MessageBoxButtons.YesNo);
+                            if (onay == DialogResult.Yes)
+                            {
+                                K_AdiTXT.Text = baslik;
+                                K_YazariTXT.Text = yazar;
+                                K_YayineviTXT.Text = yayinevi;
+
+                                DateTime date = DateTime.Parse(yayinlanmaTarihi);
+                                yayinlanmaYili = date.Year.ToString();
+
+                                K_BasimyiliTXT.Text = yayinlanmaYili;
+                                K_DiliTXT.Text = dil;
+                                K_SayfasayisiTXT.Text = sayfaSayisi.ToString();
+                            }
+                            else if (onay == DialogResult.No)
+                            {
+                                K_ISBNTXT.Text = "";
+                                temizle();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Site Seçiniz..."
+                                        , "Hata"
+                                        , MessageBoxButtons.OK
+                                        , MessageBoxIcon.Error);
+                    }
                 }
             }
-            catch (ArgumentNullException)
-            {
-                if (MessageBox.Show("Hatalı Url", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
-                {
-
-                }
-            }
-
-            WebClient client = new WebClient();
-            client.Encoding = Encoding.UTF8;
-
-            //html = client.DownloadString(url);
-            try
-            {
-                html = client.DownloadString(url);
-            }
-            catch (WebException)
-            {
-                if (MessageBox.Show("Hatalı Url", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
-                {
-
-                }
-            }
-
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            doc.LoadHtml(html);
-
-            try
-            {
-                //string baslik = doc.DocumentNode.SelectSingleNode(XPath).InnerText;
-                CikanSonuc.Items.Add(doc.DocumentNode.SelectSingleNode(XPath).InnerText);
-            }
-            catch (NullReferenceException)
-            {
-                if (MessageBox.Show("Hatalı XPath", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
-                {
-
-                }
-            }
-
-        }
-        
-        public void VeriAlDip(String Url, String XPath,String dip, ListBox CikanSonuc)
-        {
-
-            try
-            {
-                url = new Uri(Url);
-            }
-            catch (UriFormatException)
-            {
-                if (MessageBox.Show("Hatalı Url", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
-                {
-
-                }
-            }
-            catch (ArgumentNullException)
-            {
-                if (MessageBox.Show("Hatalı Url", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
-                {
-
-                }
-            }
-
-            WebClient client = new WebClient();
-            client.Encoding = Encoding.UTF8;
-
-            try
-            {
-                html = client.DownloadString(url);
-            }
-            catch (WebException)
-            {
-                if (MessageBox.Show("Hatalı Url", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
-                {
-
-                }
-            }
-
-            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-            doc.LoadHtml(html);
-
-            try
-            {
-                CikanSonuc.Items.Add(doc.DocumentNode.SelectSingleNode(XPath));
-            }
-            catch (NullReferenceException)
-            {
-                if (MessageBox.Show("Hatalı XPath", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
-                {
-
-                }
-            }
-
         }
 
         #endregion
@@ -671,5 +739,6 @@ namespace KutuphaneOtomasyonu.Forms
 
         #endregion
 
+        
     }
 }

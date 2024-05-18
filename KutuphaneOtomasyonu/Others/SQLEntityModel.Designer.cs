@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Masaüstü Klasörler\Dersler\BitirmeProjesi\Github Get.2\Github Get\KutuphaneOtomasyonu\Others\SQLEntityModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Masaüstü Klasörler\Dersler\BitirmeProjesi\Github Get.2\DGithub Get - 13 Mayıs Akşam\KutuphaneOtomasyonu\Others\SQLEntityModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
