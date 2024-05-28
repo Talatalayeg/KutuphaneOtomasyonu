@@ -101,6 +101,7 @@ namespace KutuphaneOtomasyonu.Forms
 
 
         /// Uye Ekle Bölümü 
+        
         #region
 
         //Sol Bar Ekle Ikonu
@@ -110,6 +111,7 @@ namespace KutuphaneOtomasyonu.Forms
             label1.Text = "Üye Paneli - Üye Ekle";
             eklePaneli.BringToFront();
             Uye_temizle();
+            U_EDataGridView.Columns.Clear();
         }
 
         //Yeni üye Eklemek için Ekle/           Kaydet Butonu
@@ -176,11 +178,38 @@ namespace KutuphaneOtomasyonu.Forms
             Uye_temizle();
         }
 
+        //Üye TC ile arama
+        private void E_TcBulTXT_TextChanged(object sender, EventArgs e)
+        {
+            if (E_TcBulTXT.Text == "")
+            {
+                U_EDataGridView.Columns.Clear();
+            }
+            else
+            {
+                string arananUye = E_TcBulTXT.Text.ToString();
+                var bulunanUye = db.UyeBilgileri.Where(x => x.Uye_Tc.Contains(arananUye)).ToList();
+                U_EDataGridView.DataSource = bulunanUye;
+            }
+        }
+
+        // EKle kısmı hepsini göster check box
+        private void hepsiniGosterCheckBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (hepsiniGosterCheckBox4.Checked == true)
+            {
+                var uyeler = db.UyeBilgileri.ToList();
+                U_EDataGridView.DataSource = uyeler;
+            }
+            else if (hepsiniGosterCheckBox4.Checked == false)
+            {
+                U_EDataGridView.Columns.Clear();
+            }
+        }
         #endregion
 
-
-
         /// Uye Kaldır BÖLÜMÜ
+
         #region
 
         //Sol Bar Kaldır  Ikonu
@@ -191,6 +220,7 @@ namespace KutuphaneOtomasyonu.Forms
             kaldirPaneli.BringToFront();
             Uye_temizle();
             listele();
+            UyeKaldirDataGrid.Columns.Clear();
         }
 
         //Data Grid içerisinde veriye tıklayınca labeli güncelliyor
@@ -248,16 +278,36 @@ namespace KutuphaneOtomasyonu.Forms
         // TcNo ile Arama TXT
         private void U_TcAraTXT_TextChanged(object sender, EventArgs e)
         {
-            string arananUye = U_TcAraTXT.Text.ToString();
-            var bulunanUye = db.UyeBilgileri.Where(x => x.Uye_Tc.Contains(arananUye)).ToList();
-            UyeKaldirDataGrid.DataSource = bulunanUye;
+            if (U_TcAraTXT.Text == "")
+            {
+                UyeKaldirDataGrid.Columns.Clear();
+            }
+            else
+            {
+                string arananUye = U_TcAraTXT.Text.ToString();
+                var bulunanUye = db.UyeBilgileri.Where(x => x.Uye_Tc.Contains(arananUye)).ToList();
+                UyeKaldirDataGrid.DataSource = bulunanUye;
+            }
+        }
+
+        // Hepsini Göster Check Box
+        private void hepsiniGosterCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (hepsiniGosterCheckBox.Checked == true)
+            {
+                var uyeler = db.UyeBilgileri.ToList();
+                UyeKaldirDataGrid.DataSource = uyeler;
+            }
+            else if (hepsiniGosterCheckBox.Checked == false)
+            {
+                UyeKaldirDataGrid.Columns.Clear();
+            }
         }
 
         #endregion
 
-
-
         /// Uye Guncelle Bölümü
+
         #region
 
         //Sol Bar Guncelle Ikonu
@@ -267,6 +317,7 @@ namespace KutuphaneOtomasyonu.Forms
             label1.Text = "Üye Paneli - Üye Güncelle";
             guncellePaneli.BringToFront();
             Uye_temizle();
+            UyeGuncelleDataGrid.Columns.Clear();
         }
 
         //Data Grid içerisinde veriyi textboxlara yerleştiriyor
@@ -355,13 +406,32 @@ namespace KutuphaneOtomasyonu.Forms
         // TcNo ile Arama TXT
         private void UG_TcAraTXT_TextChanged(object sender, EventArgs e)
         {
-            string arananUye = UG_TcAraTXT.Text.ToString();
-            var bulunanUye = db.UyeBilgileri.Where(x => x.Uye_Tc.Contains(arananUye)).ToList();
-            UyeGuncelleDataGrid.DataSource = bulunanUye;
+            if (UG_TcAraTXT.Text == "")
+            {
+                UyeGuncelleDataGrid.Columns.Clear();
+            }
+            else
+            {
+                string arananUye = UG_TcAraTXT.Text.ToString();
+                var bulunanUye = db.UyeBilgileri.Where(x => x.Uye_Tc.Contains(arananUye)).ToList();
+                UyeGuncelleDataGrid.DataSource = bulunanUye;
+            }
         }
 
+        //Hepsini göster check box
+        private void hepsiniGosterCheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (hepsiniGosterCheckBox2.Checked == true)
+            {
+                var uyeler = db.UyeBilgileri.ToList();
+                UyeGuncelleDataGrid.DataSource = uyeler;
+            }
+            else if (hepsiniGosterCheckBox2.Checked == false)
+            {
+                UyeGuncelleDataGrid.Columns.Clear();
+            }
+        }
         #endregion
-
 
 
         /// Üye Listeleme Bölümü
@@ -374,6 +444,7 @@ namespace KutuphaneOtomasyonu.Forms
             label1.Text = "Üye Paneli - Üye Listele";
             listelePaneli.BringToFront();
             Uye_temizle();
+            UyeListeleDataGrid.Columns.Clear();
         }
 
         // TcNo ile Arama TXT
@@ -384,9 +455,20 @@ namespace KutuphaneOtomasyonu.Forms
             UyeListeleDataGrid.DataSource = bulunanUye;
         }
 
+        //Hepsini göster check box
+        private void hepsiniGosterCheckBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (hepsiniGosterCheckBox3.Checked == true)
+            {
+                var uyeler = db.UyeBilgileri.ToList();
+                UyeListeleDataGrid.DataSource = uyeler;
+            }
+            else if (hepsiniGosterCheckBox3.Checked == false)
+            {
+                UyeListeleDataGrid.Columns.Clear();
+            }
+        }
         #endregion
-
-
 
 
         //Kimlik ve Telno'nun sadece sayı
@@ -498,5 +580,6 @@ namespace KutuphaneOtomasyonu.Forms
          }
 
         #endregion
+
     }
 }

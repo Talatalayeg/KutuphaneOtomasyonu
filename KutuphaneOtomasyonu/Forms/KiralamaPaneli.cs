@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace KutuphaneOtomasyonu.Forms
 {
@@ -59,8 +60,7 @@ namespace KutuphaneOtomasyonu.Forms
             /// Listele - Kitap
 
             ListeleKitaplarDataGrid.DataSource = kitap.ToList();
-            KitaplarDataGridView2.Columns["K_OduncDurumu"].DisplayIndex = 4;
-            KitaplarDataGridView2.Columns[11].Visible = false;
+            ListeleKitaplarDataGrid.Columns["K_OduncDurumu"].DisplayIndex = 4;
 
             // üstteki 2 dataGrid için başlıklar
             #region
@@ -190,8 +190,6 @@ namespace KutuphaneOtomasyonu.Forms
         }
 
 
-
-
         /// Kiralama Bölümü
 
         #region
@@ -203,6 +201,8 @@ namespace KutuphaneOtomasyonu.Forms
             label1.Text = "Kiralama Paneli - Kirala";
             KiralaPaneli.BringToFront();
             Temizle();
+            UyelerDataGridView.Columns.Clear();
+            KitaplarDataGridView.Columns.Clear();
         }
 
         /// ÜyelerDataGrid içerisindeki değerleri labellere atama
@@ -325,17 +325,31 @@ namespace KutuphaneOtomasyonu.Forms
         // Tc ile üye Arama TXT
         private void TcBulTXT_TextChanged(object sender, EventArgs e)
         {
-            string arananTC = TcBulTXT.Text;
-            var bulunanUyeler = db.UyeBilgileri.Where(x => x.Uye_Tc.Contains(arananTC)).ToList();
-            UyelerDataGridView.DataSource = bulunanUyeler;
+            if (TcBulTXT.Text == "")
+            {
+                UyelerDataGridView.Columns.Clear();
+            }
+            else
+            {
+                string arananTC = TcBulTXT.Text;
+                var bulunanUyeler = db.UyeBilgileri.Where(x => x.Uye_Tc.Contains(arananTC)).ToList();
+                UyelerDataGridView.DataSource = bulunanUyeler;
+            }
         }
 
         // KitapAdı ile kitap Arama TXT
         private void KitapBulTXT_TextChanged(object sender, EventArgs e)
         {
-            string arananKitap = KitapBulTXT.Text;
-            var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitap)).ToList();
-            KitaplarDataGridView.DataSource = bulunanKitaplar;
+            if (KitapBulTXT.Text == "")
+            {
+                KitaplarDataGridView.Columns.Clear();
+            }
+            else
+            {
+                string arananKitap = KitapBulTXT.Text;
+                var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitap)).ToList();
+                KitaplarDataGridView.DataSource = bulunanKitaplar;
+            }
         }
 
         #endregion
@@ -355,6 +369,7 @@ namespace KutuphaneOtomasyonu.Forms
             label1.Text = "Kiralama Paneli - Geri Al";
             GeriAlPaneli.BringToFront();
             Listele();
+            KitaplarDataGridView2.Columns.Clear();
         }
 
         /// KiralananlarDataGrid içerisindeki değerleri labellere atama
@@ -426,17 +441,35 @@ namespace KutuphaneOtomasyonu.Forms
         // GeriAl sekmesi KitapId Arama
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            int arananKitapId = Convert.ToInt16(textBox2.Text);
-            var bulunanIdler = db.KiralıkBilgileri.Where(x => x.Kitap_Id.Equals(arananKitapId)).ToList();
-            KiralananlarDataGridView2.DataSource = bulunanIdler;
+            if (textBox2.Text == "")
+            {
+                KiralananlarDataGridView2.Columns.Clear();
+            }
+            else
+            {
+                int arananKitapId = Convert.ToInt16(textBox2.Text);
+                var bulunanIdler = db.KiralıkBilgileri.Where(x => x.Kitap_Id.Equals(arananKitapId)).ToList();
+                KiralananlarDataGridView2.DataSource = bulunanIdler;
+            }
         }
 
         // GeriAl sekmesi KitapAdı Arama
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string arananKitapAdi = textBox1.Text;
+            if (textBox1.Text == "")
+            {
+                KitaplarDataGridView2.Columns.Clear();
+            }
+            else
+            {
+                string arananKitapAdi = textBox1.Text;
+                var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitapAdi)).ToList();
+                KitaplarDataGridView2.DataSource = bulunanKitaplar;
+            }
+
+            /*string arananKitapAdi = textBox1.Text;
             var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitapAdi)).ToList();
-            KitaplarDataGridView2.DataSource = bulunanKitaplar;
+            KitaplarDataGridView2.DataSource = bulunanKitaplar;*/
         }
 
         #endregion
@@ -452,12 +485,15 @@ namespace KutuphaneOtomasyonu.Forms
             db.KalanGunHesaplama13();
             db.CezaGuncelle();
             Temizle();
-            var kiraliklar = db.KiralıkBilgileri.ToList();
-            KiralananlarDataGridView1.DataSource = kiraliklar.ToList();
+            //var kiraliklar = db.KiralıkBilgileri.ToList();
+            //KiralananlarDataGridView1.DataSource = kiraliklar.ToList();
 
             ListelePaneli.Visible = true;
             label1.Text = "Kiralama Paneli - Listele";
             ListelePaneli.BringToFront();
+
+            KiralananlarDataGridView1.Columns.Clear();
+            ListeleKitaplarDataGrid.Columns.Clear();
         }
 
         //Data Grid yenilemek için listeleme butonu
@@ -506,17 +542,53 @@ namespace KutuphaneOtomasyonu.Forms
             else if (checkBox1.Checked == false)
             {
                 Listele();
+                ListeleKitaplarDataGrid.Columns.Clear();
+            }
+        }
+
+        //Listele Kiralık kitap ID Arama
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "")
+            {
+                KiralananlarDataGridView1.Columns.Clear();
+            }
+            else
+            {
+                int arananKitapId = Convert.ToInt16(textBox4.Text);
+                var bulunanIdler = db.KiralıkBilgileri.Where(x => x.Kitap_Id.Equals(arananKitapId)).ToList();
+                KiralananlarDataGridView1.DataSource = bulunanIdler;
             }
         }
 
         //Listele Kitap Adı Arama
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            string arananKitap = textBox3.Text;
-            var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitap)).ToList();
-            ListeleKitaplarDataGrid.DataSource = bulunanKitaplar;
+            if (textBox3.Text == "")
+            {
+                ListeleKitaplarDataGrid.Columns.Clear();
+            }
+            else
+            {
+                string arananKitap = textBox3.Text;
+                var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitap)).ToList();
+                ListeleKitaplarDataGrid.DataSource = bulunanKitaplar;
+            }
         }
 
+        // Listele kısmı Kiralık hepsini göster check box
+        private void hepsiniGosterCheckBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (hepsiniGosterCheckBox4.Checked == true)
+            {
+                var kiraliklar = db.KiralıkBilgileri.ToList();
+                KiralananlarDataGridView1.DataSource = kiraliklar;
+            }
+            else if (hepsiniGosterCheckBox4.Checked == false)
+            {
+                KiralananlarDataGridView1.Columns.Clear();
+            }
+        }
         #endregion
 
         /// Geçmişi Listele Bölümü
@@ -533,8 +605,8 @@ namespace KutuphaneOtomasyonu.Forms
             label1.Text = "Kiralama Paneli - Geçmis Kiralıklar";
             GecmisPaneli.BringToFront();
             Listele();
+            GecmisKiraliklarDataGrid.Columns.Clear();
         }
-
 
         private void GecmisKiraliklarDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -573,6 +645,37 @@ namespace KutuphaneOtomasyonu.Forms
             }
 
         }
+
+        //geçmiş kirala kirala ID arama
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox5.Text == "")
+            {
+                GecmisKiraliklarDataGrid.Columns.Clear();
+            }
+            else
+            {
+                int arananGecmisKiralaId = Convert.ToInt16(textBox5.Text);
+                var bulunanGecmis = db.GecmisKiralikBilgileri.Where(x => x.Kirala_Id == arananGecmisKiralaId).ToList();
+                GecmisKiraliklarDataGrid.DataSource = bulunanGecmis;
+            }
+        }
+
+        //geçmiş Hepsini göster check box
+        private void hepsiniGosterCheckBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (hepsiniGosterCheckBox3.Checked == true)
+            {
+                var gecmis = db.GecmisKiralikBilgileri.ToList();
+                GecmisKiraliklarDataGrid.DataSource = gecmis;
+            }
+            else if (hepsiniGosterCheckBox3.Checked == false)
+            {
+                GecmisKiraliklarDataGrid.Columns.Clear();
+            }
+        }
+        
         #endregion
+
     }
 }

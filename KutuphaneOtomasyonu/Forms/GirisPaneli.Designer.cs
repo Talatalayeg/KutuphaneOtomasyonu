@@ -73,6 +73,7 @@
             // 
             this.SifreTextBox.Location = new System.Drawing.Point(214, 94);
             this.SifreTextBox.Name = "SifreTextBox";
+            this.SifreTextBox.PasswordChar = '*';
             this.SifreTextBox.Size = new System.Drawing.Size(183, 20);
             this.SifreTextBox.TabIndex = 3;
             // 

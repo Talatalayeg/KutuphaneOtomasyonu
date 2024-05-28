@@ -28,6 +28,7 @@ using AForge.Video.DirectShow;
 using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 using System.Data.Entity.Validation;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace KutuphaneOtomasyonu.Forms
 {
@@ -145,7 +146,7 @@ namespace KutuphaneOtomasyonu.Forms
 
         }
 
-        //internet bağlantısı kontrolü
+        // internet bağlantısı kontrolü
         #region
 
         private void NetworkChange_NetworkAvailabilityChanged(object sender, NetworkAvailabilityEventArgs e)
@@ -322,7 +323,7 @@ namespace KutuphaneOtomasyonu.Forms
                         int sayfaSayisi = 0;
 
                         //ISBNDB apikey
-                        string ISBNapiKey = "53375_86d96560e3a2500a2848943e4281bfca";
+                        string ISBNapiKey = "53567_291190132cca9d12414ece591b584f15";
 
                         string WEBSERVICE_URL = "https://api2.isbndb.com/book/" + isbn;
 
@@ -463,6 +464,21 @@ namespace KutuphaneOtomasyonu.Forms
             }
         }
 
+        // Kitap Ekle kitap adı arama
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                ekleKitaplarDataGridView.Columns.Clear();
+            }
+            else
+            {
+                string arananKitap = textBox1.Text.ToString();
+                var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitap)).ToList();
+                ekleKitaplarDataGridView.DataSource = bulunanKitaplar;
+            }
+        }
+
         #endregion
 
 
@@ -477,6 +493,7 @@ namespace KutuphaneOtomasyonu.Forms
             label1.Text = "Kitap Paneli - Kitap Kaldır";
             kaldirPaneli.BringToFront();
             temizle();
+            kaldirKitaplarDataGridView.Columns.Clear();
         }
 
         /// DataGrid Seçili bilgiye label ile guncelleme
@@ -524,9 +541,16 @@ namespace KutuphaneOtomasyonu.Forms
         // Kitap Adı ile Arama
         private void K_AdiBulTXT_TextChanged(object sender, EventArgs e)
         {
-            string arananKitap = K_AdiBulTXT.Text.ToString();
-            var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitap)).ToList();
-            kaldirKitaplarDataGridView.DataSource = bulunanKitaplar;
+            if (K_AdiBulTXT.Text == "")
+            {
+                ekleKitaplarDataGridView.Columns.Clear();
+            }
+            else
+            {
+                string arananKitap = K_AdiBulTXT.Text.ToString();
+                var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitap)).ToList();
+                kaldirKitaplarDataGridView.DataSource = bulunanKitaplar;
+            }
         }
 
         #endregion
@@ -545,6 +569,7 @@ namespace KutuphaneOtomasyonu.Forms
             temizle();
             comboBox1.Items.Add("Kiralık");
             comboBox1.Items.Add("Hazır");
+            GuncelleDataGridView.Columns.Clear();
         }
 
         // DataGrid verileri TXTBoxlara yerleştirir
@@ -628,9 +653,16 @@ namespace KutuphaneOtomasyonu.Forms
         // Kitap Adı ile Arama
         private void KG_AdiAraTXT_TextChanged(object sender, EventArgs e)
         {
-            string arananKitap = KG_AdiAraTXT.Text.ToString();
-            var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitap)).ToList();
-            GuncelleDataGridView.DataSource = bulunanKitaplar;
+            if (KG_AdiAraTXT.Text == "")
+            {
+                GuncelleDataGridView.Columns.Clear();
+            }
+            else
+            {
+                string arananKitap = KG_AdiAraTXT.Text.ToString();
+                var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitap)).ToList();
+                GuncelleDataGridView.DataSource = bulunanKitaplar;
+            }
         }
 
         #endregion
@@ -647,21 +679,25 @@ namespace KutuphaneOtomasyonu.Forms
             label1.Text = "Kitap Paneli - Kitap Listele";
             listelePaneli.BringToFront();
             temizle();
+            ListeleDataGridView.Columns.Clear();
         }
 
         // Kitap adıyla arama
         private void textBox19_TextChanged(object sender, EventArgs e)
         {
-            string arananKitap = listeleAraTXT.Text;
-            var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitap)).ToList();
-            ListeleDataGridView.DataSource = bulunanKitaplar;
+            if (listeleAraTXT.Text == "")
+            {
+                ListeleDataGridView.Columns.Clear();
+            }
+            else
+            {
+                string arananKitap = listeleAraTXT.Text.ToString();
+                var bulunanKitaplar = db.KitapBilgileri.Where(x => x.Kitap_Adi.Contains(arananKitap)).ToList();
+                ListeleDataGridView.DataSource = bulunanKitaplar;
+            }
         }
 
         #endregion
-
-
-
-
 
 
         //ISBN'in sadece sayı
@@ -737,8 +773,8 @@ namespace KutuphaneOtomasyonu.Forms
             }
         }
 
+
         #endregion
 
-        
     }
 }

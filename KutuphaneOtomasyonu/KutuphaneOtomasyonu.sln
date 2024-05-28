@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KutuphaneOtomasyonu", "KutuphaneOtomasyonu.csproj", "{531F197E-BD6E-4A59-B159-C2F813D33F42}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "KutuphaneOtomasyonuSetup", "..\KutuphaneOtomasyonuSetup\KutuphaneOtomasyonuSetup.vdproj", "{929DEF6C-8842-4B03-AAAD-A3D02F4543E4}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "KutuphaneOtomasyonuSetup", "..\KutuphaneOtomasyonuSetup\KutuphaneOtomasyonuSetup.vdproj", "{E6980481-D547-450A-850C-94BAF103C982}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{531F197E-BD6E-4A59-B159-C2F813D33F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{531F197E-BD6E-4A59-B159-C2F813D33F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{531F197E-BD6E-4A59-B159-C2F813D33F42}.Release|Any CPU.Build.0 = Release|Any CPU
-		{929DEF6C-8842-4B03-AAAD-A3D02F4543E4}.Debug|Any CPU.ActiveCfg = Debug
-		{929DEF6C-8842-4B03-AAAD-A3D02F4543E4}.Release|Any CPU.ActiveCfg = Release
+		{E6980481-D547-450A-850C-94BAF103C982}.Debug|Any CPU.ActiveCfg = Debug
+		{E6980481-D547-450A-850C-94BAF103C982}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

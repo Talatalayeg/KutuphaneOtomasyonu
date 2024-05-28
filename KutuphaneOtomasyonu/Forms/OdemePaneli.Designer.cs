@@ -36,6 +36,7 @@
             this.ListeleButonu = new System.Windows.Forms.Button();
             this.S_OdemeButonu = new System.Windows.Forms.Button();
             this.CezaOdemePaneli = new System.Windows.Forms.Panel();
+            this.hepsiniGosterCheckBox = new System.Windows.Forms.CheckBox();
             this.cezalilarCheckBox = new System.Windows.Forms.CheckBox();
             this.G_TcAraTXT = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -65,6 +66,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.OdemeGecmisiDataGrid = new System.Windows.Forms.DataGridView();
+            this.gecmisOdemeCheckBox = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.CezaOdemePaneli.SuspendLayout();
@@ -160,6 +162,7 @@
             // 
             // CezaOdemePaneli
             // 
+            this.CezaOdemePaneli.Controls.Add(this.hepsiniGosterCheckBox);
             this.CezaOdemePaneli.Controls.Add(this.cezalilarCheckBox);
             this.CezaOdemePaneli.Controls.Add(this.G_TcAraTXT);
             this.CezaOdemePaneli.Controls.Add(this.groupBox3);
@@ -173,11 +176,23 @@
             this.CezaOdemePaneli.Size = new System.Drawing.Size(1060, 580);
             this.CezaOdemePaneli.TabIndex = 14;
             // 
+            // hepsiniGosterCheckBox
+            // 
+            this.hepsiniGosterCheckBox.AutoSize = true;
+            this.hepsiniGosterCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.hepsiniGosterCheckBox.Location = new System.Drawing.Point(162, 35);
+            this.hepsiniGosterCheckBox.Name = "hepsiniGosterCheckBox";
+            this.hepsiniGosterCheckBox.Size = new System.Drawing.Size(126, 22);
+            this.hepsiniGosterCheckBox.TabIndex = 31;
+            this.hepsiniGosterCheckBox.Text = "Hepsini Göster";
+            this.hepsiniGosterCheckBox.UseVisualStyleBackColor = true;
+            this.hepsiniGosterCheckBox.CheckedChanged += new System.EventHandler(this.hepsiniGosterCheckBox_CheckedChanged);
+            // 
             // cezalilarCheckBox
             // 
             this.cezalilarCheckBox.AutoSize = true;
             this.cezalilarCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cezalilarCheckBox.Location = new System.Drawing.Point(276, 14);
+            this.cezalilarCheckBox.Location = new System.Drawing.Point(305, 35);
             this.cezalilarCheckBox.Name = "cezalilarCheckBox";
             this.cezalilarCheckBox.Size = new System.Drawing.Size(138, 22);
             this.cezalilarCheckBox.TabIndex = 30;
@@ -187,7 +202,7 @@
             // 
             // G_TcAraTXT
             // 
-            this.G_TcAraTXT.Location = new System.Drawing.Point(533, 16);
+            this.G_TcAraTXT.Location = new System.Drawing.Point(537, 38);
             this.G_TcAraTXT.MaxLength = 11;
             this.G_TcAraTXT.Name = "G_TcAraTXT";
             this.G_TcAraTXT.Size = new System.Drawing.Size(126, 20);
@@ -279,18 +294,18 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label22.Location = new System.Drawing.Point(445, 16);
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label22.Location = new System.Drawing.Point(460, 40);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(77, 16);
+            this.label22.Size = new System.Drawing.Size(71, 16);
             this.label22.TabIndex = 27;
-            this.label22.Text = "Çalışan Tc :";
+            this.label22.Text = "Üye TC : ";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
-            this.label21.Location = new System.Drawing.Point(0, 10);
+            this.label21.Location = new System.Drawing.Point(10, 30);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(105, 25);
             this.label21.TabIndex = 26;
@@ -319,7 +334,7 @@
             // CezalilarDataGrid
             // 
             this.CezalilarDataGrid.ColumnHeadersHeight = 50;
-            this.CezalilarDataGrid.Location = new System.Drawing.Point(3, 53);
+            this.CezalilarDataGrid.Location = new System.Drawing.Point(7, 74);
             this.CezalilarDataGrid.Name = "CezalilarDataGrid";
             this.CezalilarDataGrid.Size = new System.Drawing.Size(656, 455);
             this.CezalilarDataGrid.TabIndex = 1;
@@ -327,6 +342,7 @@
             // 
             // GecmisPaneli
             // 
+            this.GecmisPaneli.Controls.Add(this.gecmisOdemeCheckBox);
             this.GecmisPaneli.Controls.Add(this.odemeNoTXT);
             this.GecmisPaneli.Controls.Add(this.groupBox1);
             this.GecmisPaneli.Controls.Add(this.label10);
@@ -339,7 +355,7 @@
             // 
             // odemeNoTXT
             // 
-            this.odemeNoTXT.Location = new System.Drawing.Point(419, 17);
+            this.odemeNoTXT.Location = new System.Drawing.Point(479, 17);
             this.odemeNoTXT.MaxLength = 11;
             this.odemeNoTXT.Name = "odemeNoTXT";
             this.odemeNoTXT.Size = new System.Drawing.Size(126, 20);
@@ -356,9 +372,9 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Location = new System.Drawing.Point(589, 15);
+            this.groupBox1.Location = new System.Drawing.Point(643, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 300);
+            this.groupBox1.Size = new System.Drawing.Size(396, 300);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ödeme Bilgileri";
@@ -447,7 +463,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(336, 19);
+            this.label10.Location = new System.Drawing.Point(396, 19);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(79, 16);
             this.label10.TabIndex = 27;
@@ -466,22 +482,35 @@
             // OdemeGecmisiDataGrid
             // 
             this.OdemeGecmisiDataGrid.ColumnHeadersHeight = 50;
-            this.OdemeGecmisiDataGrid.Location = new System.Drawing.Point(3, 53);
+            this.OdemeGecmisiDataGrid.Location = new System.Drawing.Point(60, 53);
             this.OdemeGecmisiDataGrid.Name = "OdemeGecmisiDataGrid";
             this.OdemeGecmisiDataGrid.Size = new System.Drawing.Size(545, 455);
             this.OdemeGecmisiDataGrid.TabIndex = 1;
             this.OdemeGecmisiDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OdemeGecmisiDataGrid_CellContentClick);
+            // 
+            // gecmisOdemeCheckBox
+            // 
+            this.gecmisOdemeCheckBox.AutoSize = true;
+            this.gecmisOdemeCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.gecmisOdemeCheckBox.Location = new System.Drawing.Point(264, 17);
+            this.gecmisOdemeCheckBox.Name = "gecmisOdemeCheckBox";
+            this.gecmisOdemeCheckBox.Size = new System.Drawing.Size(126, 22);
+            this.gecmisOdemeCheckBox.TabIndex = 39;
+            this.gecmisOdemeCheckBox.Text = "Hepsini Göster";
+            this.gecmisOdemeCheckBox.UseVisualStyleBackColor = true;
+            this.gecmisOdemeCheckBox.CheckedChanged += new System.EventHandler(this.gecmisOdemeCheckBox_CheckedChanged);
             // 
             // OdemePaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 694);
-            this.Controls.Add(this.GecmisPaneli);
             this.Controls.Add(this.CezaOdemePaneli);
+            this.Controls.Add(this.GecmisPaneli);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "OdemePaneli";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TacemBook - OdemePaneli";
             this.Load += new System.EventHandler(this.OdemePaneli_Load);
             this.panel2.ResumeLayout(false);
@@ -539,5 +568,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.CheckBox hepsiniGosterCheckBox;
+        private System.Windows.Forms.CheckBox gecmisOdemeCheckBox;
     }
 }

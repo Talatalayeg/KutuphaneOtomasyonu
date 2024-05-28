@@ -30,30 +30,6 @@ namespace KutuphaneOtomasyonu
         {
             db.KalanGunHesaplama13();
             db.CezaGuncelle();
-            var kiraliklar = db.KiralıkBilgileri.ToList();
-            kiraliklarDataGrid.DataSource = kiraliklar;
-            kiraliklarDataGrid.Columns[6].Visible = false;
-            kiraliklarDataGrid.Columns[7].Visible = false;
-
-            var cezalilar = db.UyeBilgileri.Where(x => x.Uye_Ceza > 0).ToList();
-            CezalilarDataGrid.DataSource = cezalilar;
-            CezalilarDataGrid.Columns[11].Visible = false;
-            CezalilarDataGrid.Columns[12].Visible = false;
-            CezalilarDataGrid.Columns[13].Visible = false;
-            CezalilarDataGrid.Columns["Uye_Ceza"].DisplayIndex = 4;
-
-            // Formdaki bütün dataGrid sutun baslikları
-            string[] sutunBasliklari = {
-            "ID", "Kitap ID", "Uye ID", "Kiralama Tarihi", "Son Teslim Tarihi","Kalan Gün Sayısı"
-            };
-
-            foreach (DataGridView dataGridView in new[] {kiraliklarDataGrid })
-            {
-                for (int i = 0; i < sutunBasliklari.Length; i++)
-                {
-                    dataGridView.Columns[i].HeaderText = sutunBasliklari[i];
-                }
-            }
         }
 
         private void Panelislemleri_Load(object sender, EventArgs e)
@@ -72,8 +48,18 @@ namespace KutuphaneOtomasyonu
             }
         }
 
+
+        private void GeriDonButonu_Click(object sender, EventArgs e)
+        {
+            Listele();
+            GirisPaneli girisPaneli = new GirisPaneli();
+            girisPaneli.Show();
+            this.Hide();
+        }
+
         private void CalisanPaneliButonu_Click(object sender, EventArgs e)
         {
+            Listele();
             CalisanPaneli calisanPaneli = new CalisanPaneli();
             calisanPaneli.Show();
             calisanPaneli.CalisanPaneliKullaniciRolu = KullaniciRolu;
@@ -83,6 +69,7 @@ namespace KutuphaneOtomasyonu
 
         private void UyePaneliButonu_Click(object sender, EventArgs e)
         {
+            Listele();
             UyePaneli uyePaneli = new UyePaneli();
             uyePaneli.UyePaneliKullaniciRolu = KullaniciRolu;
             uyePaneli.UyePaneliKullaniciAdi = KullaniciAdi;
@@ -92,6 +79,7 @@ namespace KutuphaneOtomasyonu
 
         private void KitapPaneliButonu_Click(object sender, EventArgs e)
         {
+            Listele();
             KitapPaneli kitapPaneli = new KitapPaneli();
             kitapPaneli.KitapPaneliKullaniciRolu = KullaniciRolu;
             kitapPaneli.KitapPaneliKullaniciAdi = KullaniciAdi;
@@ -101,6 +89,7 @@ namespace KutuphaneOtomasyonu
 
         private void KiralamaPaneliButonu_Click(object sender, EventArgs e)
         {
+            Listele();
             KiralamaPaneli kiralamaPaneli = new KiralamaPaneli();
             kiralamaPaneli.KiralamaPaneliKullaniciRolu = KullaniciRolu;
             kiralamaPaneli.KiralamaPaneliKullaniciAdi = KullaniciAdi;
@@ -111,6 +100,7 @@ namespace KutuphaneOtomasyonu
 
         private void OdemePaneliButonu_Click(object sender, EventArgs e)
         {
+            Listele();
             OdemePaneli odemePaneli = new OdemePaneli();
             odemePaneli.OdemePaneliKullaniciRolu = KullaniciRolu;
             odemePaneli.OdemePaneliKullaniciAdi = KullaniciAdi;
@@ -118,34 +108,14 @@ namespace KutuphaneOtomasyonu
             this.Hide();
         }
 
-        private void kiraliklarDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void RaporPaneliButonu_Click(object sender, EventArgs e)
         {
-            int kiralikKitapId = Convert.ToInt16(kiraliklarDataGrid.CurrentRow.Cells[1].Value.ToString());
-            var kiralikKitap = db.KitapBilgileri.Where(x => x.Kitap_Id.Equals(kiralikKitapId)).FirstOrDefault();
-
-            label11.Text = kiralikKitap.Kitap_Adi.ToString();          // 11 Kitap Adı
-
-            int kiralikUyeId = Convert.ToInt16(kiraliklarDataGrid.CurrentRow.Cells[2].Value.ToString());
-            var uyeBilgisi = db.UyeBilgileri.Where(x => x.Uye_Id.Equals(kiralikUyeId)).FirstOrDefault();
-
-            label10.Text = uyeBilgisi.Uye_Adi.ToString();                 // 10 Üye Adı
-            label10.Text += " " + uyeBilgisi.Uye_Soyadi.ToString();
-
-            label12.Text = kiraliklarDataGrid.CurrentRow.Cells[5].Value.ToString();       // 12 Kalan Gün
-            label12.Text += " Gün";
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == true)
-            {
-                var gunuGecenler = db.KiralıkBilgileri.Where(x => x.Kalan_Gun<=0).ToList();
-                kiraliklarDataGrid.DataSource = gunuGecenler;
-            }
-            else if(checkBox1.Checked == false)
-            {
-                Listele();
-            }
+            Listele();
+            RaporPaneli raporPaneli = new RaporPaneli();
+            raporPaneli.RaporPaneliKullaniciRolu = KullaniciRolu;
+            raporPaneli.RaporPaneliKullaniciAdi = KullaniciAdi;
+            raporPaneli.Show();
+            this.Hide();
         }
     }
 }

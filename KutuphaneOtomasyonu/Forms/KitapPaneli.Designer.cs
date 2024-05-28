@@ -39,6 +39,8 @@
             this.KaldirButonu = new System.Windows.Forms.Button();
             this.EkleButonu = new System.Windows.Forms.Button();
             this.eklePaneli = new System.Windows.Forms.Panel();
+            this.label71 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.cboDevice = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -252,6 +254,8 @@
             // 
             // eklePaneli
             // 
+            this.eklePaneli.Controls.Add(this.label71);
+            this.eklePaneli.Controls.Add(this.textBox1);
             this.eklePaneli.Controls.Add(this.cboDevice);
             this.eklePaneli.Controls.Add(this.pictureBox1);
             this.eklePaneli.Controls.Add(this.groupBox2);
@@ -264,6 +268,24 @@
             this.eklePaneli.Name = "eklePaneli";
             this.eklePaneli.Size = new System.Drawing.Size(1060, 590);
             this.eklePaneli.TabIndex = 15;
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold);
+            this.label71.Location = new System.Drawing.Point(402, 271);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(74, 20);
+            this.label71.TabIndex = 33;
+            this.label71.Text = "Kitap Adı :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(482, 273);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(144, 20);
+            this.textBox1.TabIndex = 17;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // cboDevice
             // 
@@ -1075,9 +1097,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1184, 681);
             this.Controls.Add(this.eklePaneli);
+            this.Controls.Add(this.listelePaneli);
             this.Controls.Add(this.guncellePaneli);
             this.Controls.Add(this.kaldirPaneli);
-            this.Controls.Add(this.listelePaneli);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1203,5 +1225,7 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Button sitedenVeriCek;
         private System.Windows.Forms.ComboBox isbnSiteCombo;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label71;
     }
 }

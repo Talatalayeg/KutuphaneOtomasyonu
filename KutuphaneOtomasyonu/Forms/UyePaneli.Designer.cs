@@ -38,6 +38,7 @@
             this.GeriDonButonu = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.eklePaneli = new System.Windows.Forms.Panel();
+            this.hepsiniGosterCheckBox4 = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.U_AdiTXT = new System.Windows.Forms.TextBox();
             this.U_SoyadiTXT = new System.Windows.Forms.TextBox();
@@ -57,11 +58,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.E_TcBulTXT = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.KaydetButonu = new System.Windows.Forms.Button();
             this.TemizleButonu = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.U_EDataGridView = new System.Windows.Forms.DataGridView();
             this.kaldirPaneli = new System.Windows.Forms.Panel();
+            this.hepsiniGosterCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -77,6 +81,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.guncellePaneli = new System.Windows.Forms.Panel();
+            this.hepsiniGosterCheckBox2 = new System.Windows.Forms.CheckBox();
             this.UG_TcAraTXT = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -108,6 +113,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.UyeGuncelleDataGrid = new System.Windows.Forms.DataGridView();
             this.listelePaneli = new System.Windows.Forms.Panel();
+            this.hepsiniGosterCheckBox3 = new System.Windows.Forms.CheckBox();
             this.L_TcBulTXT = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -244,7 +250,10 @@
             // 
             // eklePaneli
             // 
+            this.eklePaneli.Controls.Add(this.hepsiniGosterCheckBox4);
             this.eklePaneli.Controls.Add(this.groupBox2);
+            this.eklePaneli.Controls.Add(this.E_TcBulTXT);
+            this.eklePaneli.Controls.Add(this.label28);
             this.eklePaneli.Controls.Add(this.KaydetButonu);
             this.eklePaneli.Controls.Add(this.TemizleButonu);
             this.eklePaneli.Controls.Add(this.label15);
@@ -253,6 +262,18 @@
             this.eklePaneli.Name = "eklePaneli";
             this.eklePaneli.Size = new System.Drawing.Size(1060, 590);
             this.eklePaneli.TabIndex = 13;
+            // 
+            // hepsiniGosterCheckBox4
+            // 
+            this.hepsiniGosterCheckBox4.AutoSize = true;
+            this.hepsiniGosterCheckBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.hepsiniGosterCheckBox4.Location = new System.Drawing.Point(625, 22);
+            this.hepsiniGosterCheckBox4.Name = "hepsiniGosterCheckBox4";
+            this.hepsiniGosterCheckBox4.Size = new System.Drawing.Size(126, 22);
+            this.hepsiniGosterCheckBox4.TabIndex = 37;
+            this.hepsiniGosterCheckBox4.Text = "Hepsini Göster";
+            this.hepsiniGosterCheckBox4.UseVisualStyleBackColor = true;
+            this.hepsiniGosterCheckBox4.CheckedChanged += new System.EventHandler(this.hepsiniGosterCheckBox4_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -460,6 +481,25 @@
             this.label12.TabIndex = 1;
             this.label12.Text = "Adres :";
             // 
+            // E_TcBulTXT
+            // 
+            this.E_TcBulTXT.Location = new System.Drawing.Point(851, 24);
+            this.E_TcBulTXT.MaxLength = 11;
+            this.E_TcBulTXT.Name = "E_TcBulTXT";
+            this.E_TcBulTXT.Size = new System.Drawing.Size(190, 20);
+            this.E_TcBulTXT.TabIndex = 36;
+            this.E_TcBulTXT.TextChanged += new System.EventHandler(this.E_TcBulTXT_TextChanged);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label28.Location = new System.Drawing.Point(776, 24);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(66, 20);
+            this.label28.TabIndex = 35;
+            this.label28.Text = "Üye Tc :";
+            // 
             // KaydetButonu
             // 
             this.KaydetButonu.Location = new System.Drawing.Point(123, 463);
@@ -496,11 +536,12 @@
             this.U_EDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.U_EDataGridView.Location = new System.Drawing.Point(381, 55);
             this.U_EDataGridView.Name = "U_EDataGridView";
-            this.U_EDataGridView.Size = new System.Drawing.Size(676, 534);
+            this.U_EDataGridView.Size = new System.Drawing.Size(660, 524);
             this.U_EDataGridView.TabIndex = 12;
             // 
             // kaldirPaneli
             // 
+            this.kaldirPaneli.Controls.Add(this.hepsiniGosterCheckBox);
             this.kaldirPaneli.Controls.Add(this.groupBox1);
             this.kaldirPaneli.Controls.Add(this.U_TcAraTXT);
             this.kaldirPaneli.Controls.Add(this.KaldirmaButonu);
@@ -511,6 +552,18 @@
             this.kaldirPaneli.Name = "kaldirPaneli";
             this.kaldirPaneli.Size = new System.Drawing.Size(1060, 590);
             this.kaldirPaneli.TabIndex = 14;
+            // 
+            // hepsiniGosterCheckBox
+            // 
+            this.hepsiniGosterCheckBox.AutoSize = true;
+            this.hepsiniGosterCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.hepsiniGosterCheckBox.Location = new System.Drawing.Point(642, 22);
+            this.hepsiniGosterCheckBox.Name = "hepsiniGosterCheckBox";
+            this.hepsiniGosterCheckBox.Size = new System.Drawing.Size(126, 22);
+            this.hepsiniGosterCheckBox.TabIndex = 32;
+            this.hepsiniGosterCheckBox.Text = "Hepsini Göster";
+            this.hepsiniGosterCheckBox.UseVisualStyleBackColor = true;
+            this.hepsiniGosterCheckBox.CheckedChanged += new System.EventHandler(this.hepsiniGosterCheckBox_CheckedChanged);
             // 
             // groupBox1
             // 
@@ -607,7 +660,7 @@
             // 
             // U_TcAraTXT
             // 
-            this.U_TcAraTXT.Location = new System.Drawing.Point(851, 12);
+            this.U_TcAraTXT.Location = new System.Drawing.Point(849, 23);
             this.U_TcAraTXT.MaxLength = 11;
             this.U_TcAraTXT.Name = "U_TcAraTXT";
             this.U_TcAraTXT.Size = new System.Drawing.Size(190, 20);
@@ -638,7 +691,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label17.Location = new System.Drawing.Point(779, 13);
+            this.label17.Location = new System.Drawing.Point(777, 24);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(66, 20);
             this.label17.TabIndex = 8;
@@ -656,6 +709,7 @@
             // 
             // guncellePaneli
             // 
+            this.guncellePaneli.Controls.Add(this.hepsiniGosterCheckBox2);
             this.guncellePaneli.Controls.Add(this.UG_TcAraTXT);
             this.guncellePaneli.Controls.Add(this.groupBox3);
             this.guncellePaneli.Controls.Add(this.GuncellemeButonu);
@@ -666,6 +720,18 @@
             this.guncellePaneli.Name = "guncellePaneli";
             this.guncellePaneli.Size = new System.Drawing.Size(1060, 590);
             this.guncellePaneli.TabIndex = 15;
+            // 
+            // hepsiniGosterCheckBox2
+            // 
+            this.hepsiniGosterCheckBox2.AutoSize = true;
+            this.hepsiniGosterCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.hepsiniGosterCheckBox2.Location = new System.Drawing.Point(381, 16);
+            this.hepsiniGosterCheckBox2.Name = "hepsiniGosterCheckBox2";
+            this.hepsiniGosterCheckBox2.Size = new System.Drawing.Size(126, 22);
+            this.hepsiniGosterCheckBox2.TabIndex = 33;
+            this.hepsiniGosterCheckBox2.Text = "Hepsini Göster";
+            this.hepsiniGosterCheckBox2.UseVisualStyleBackColor = true;
+            this.hepsiniGosterCheckBox2.CheckedChanged += new System.EventHandler(this.hepsiniGosterCheckBox2_CheckedChanged);
             // 
             // UG_TcAraTXT
             // 
@@ -977,6 +1043,7 @@
             // 
             // listelePaneli
             // 
+            this.listelePaneli.Controls.Add(this.hepsiniGosterCheckBox3);
             this.listelePaneli.Controls.Add(this.L_TcBulTXT);
             this.listelePaneli.Controls.Add(this.label25);
             this.listelePaneli.Controls.Add(this.label24);
@@ -985,6 +1052,18 @@
             this.listelePaneli.Name = "listelePaneli";
             this.listelePaneli.Size = new System.Drawing.Size(1060, 590);
             this.listelePaneli.TabIndex = 16;
+            // 
+            // hepsiniGosterCheckBox3
+            // 
+            this.hepsiniGosterCheckBox3.AutoSize = true;
+            this.hepsiniGosterCheckBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.hepsiniGosterCheckBox3.Location = new System.Drawing.Point(623, 19);
+            this.hepsiniGosterCheckBox3.Name = "hepsiniGosterCheckBox3";
+            this.hepsiniGosterCheckBox3.Size = new System.Drawing.Size(126, 22);
+            this.hepsiniGosterCheckBox3.TabIndex = 34;
+            this.hepsiniGosterCheckBox3.Text = "Hepsini Göster";
+            this.hepsiniGosterCheckBox3.UseVisualStyleBackColor = true;
+            this.hepsiniGosterCheckBox3.CheckedChanged += new System.EventHandler(this.hepsiniGosterCheckBox3_CheckedChanged);
             // 
             // L_TcBulTXT
             // 
@@ -1030,9 +1109,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1184, 681);
-            this.Controls.Add(this.guncellePaneli);
-            this.Controls.Add(this.eklePaneli);
             this.Controls.Add(this.listelePaneli);
+            this.Controls.Add(this.eklePaneli);
+            this.Controls.Add(this.guncellePaneli);
             this.Controls.Add(this.kaldirPaneli);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1151,5 +1230,11 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox hepsiniGosterCheckBox;
+        private System.Windows.Forms.CheckBox hepsiniGosterCheckBox2;
+        private System.Windows.Forms.CheckBox hepsiniGosterCheckBox3;
+        private System.Windows.Forms.CheckBox hepsiniGosterCheckBox4;
+        private System.Windows.Forms.TextBox E_TcBulTXT;
+        private System.Windows.Forms.Label label28;
     }
 }

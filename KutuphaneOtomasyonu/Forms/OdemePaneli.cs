@@ -32,6 +32,7 @@ namespace KutuphaneOtomasyonu.Forms
             CezaOdemePaneli.BringToFront();
             Listele();
             Temizle();
+            CezalilarDataGrid.Columns.Clear();
         }
 
         // Kod üretimi
@@ -78,6 +79,7 @@ namespace KutuphaneOtomasyonu.Forms
             var uyeler = db.UyeBilgileri.ToList();
             CezalilarDataGrid.DataSource = uyeler.ToList();
             CezalilarDataGrid.Columns["Uye_Ceza"].DisplayIndex = 4;
+            CezalilarDataGrid.Columns[10].Visible = false;
             CezalilarDataGrid.Columns[11].Visible = false;
             CezalilarDataGrid.Columns[12].Visible = false;
             CezalilarDataGrid.Columns[13].Visible = false;
@@ -116,6 +118,8 @@ namespace KutuphaneOtomasyonu.Forms
             label1.Text = "Ödeme Paneli - Ceza Ödeme";
             CezaOdemePaneli.Visible = true;
             CezaOdemePaneli.BringToFront();
+            Listele();
+            CezalilarDataGrid.Columns.Clear();
         }
 
         // bir kısmını öde checkbox
@@ -144,12 +148,30 @@ namespace KutuphaneOtomasyonu.Forms
         {
             if(cezalilarCheckBox.Checked == true)
             {
+                hepsiniGosterCheckBox.Checked = false;
+
                 var cezalilar = db.UyeBilgileri.Where(x => x.Uye_Ceza > 0).ToList();
                 CezalilarDataGrid.DataSource = cezalilar;
             }
             else if(cezalilarCheckBox.Checked == false)
             {
-                Listele();
+                CezalilarDataGrid.Columns.Clear();
+            }
+        }
+
+        // Hepsini Gösterme Check Box
+        private void hepsiniGosterCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (hepsiniGosterCheckBox.Checked == true)
+            {
+                cezalilarCheckBox.Checked = false;
+
+                var cezalilar = db.UyeBilgileri.ToList();
+                CezalilarDataGrid.DataSource = cezalilar;
+            }
+            else if (hepsiniGosterCheckBox.Checked == false)
+            {
+                CezalilarDataGrid.Columns.Clear();
             }
         }
 
@@ -171,10 +193,22 @@ namespace KutuphaneOtomasyonu.Forms
                 label4.Text = uyeBilgisi.Uye_Ceza.ToString();
             }
         }
-        
+
         // Kullanıcı Tc arama
         private void G_TcAraTXT_TextChanged(object sender, EventArgs e)
         {
+
+            if (G_TcAraTXT.Text == "")
+            {
+                CezalilarDataGrid.Columns.Clear();
+            }
+            else
+            {
+                string arananTC = G_TcAraTXT.Text;
+                var bulunanUyeler = db.UyeBilgileri.Where(x => x.Uye_Tc.Contains(arananTC) && x.Uye_Ceza > 0).ToList();
+                CezalilarDataGrid.DataSource = bulunanUyeler;
+            }
+            /*
             string arananTC = G_TcAraTXT.Text;
             if (cezalilarCheckBox.Checked == true)
             {
@@ -185,7 +219,7 @@ namespace KutuphaneOtomasyonu.Forms
             {
                 var bulunanUyeler = db.UyeBilgileri.Where(x => x.Uye_Tc.Contains(arananTC) && x.Uye_Ceza == 0).ToList();
                 CezalilarDataGrid.DataSource = bulunanUyeler;
-            }
+            }*/
         }
 
         // Tamamını Öde Butonu
@@ -290,6 +324,7 @@ namespace KutuphaneOtomasyonu.Forms
             GecmisPaneli.BringToFront();
             Temizle();
             Listele();
+            OdemeGecmisiDataGrid.Columns.Clear();
         }
 
         // Data Grid bilgileri labele atama
@@ -319,9 +354,30 @@ namespace KutuphaneOtomasyonu.Forms
         // Odeme No ile arama
         private void odemeNoTXT_TextChanged(object sender, EventArgs e)
         {
-            string arananNo = odemeNoTXT.Text;
-            var bulunanOdemeler = db.OdemeBilgileri.Where(x => x.Odeme_No.Contains(arananNo)).ToList();
-            OdemeGecmisiDataGrid.DataSource = bulunanOdemeler;
+            if (odemeNoTXT.Text == "")
+            {
+                OdemeGecmisiDataGrid.Columns.Clear();
+            }
+            else
+            {
+                string arananNo = odemeNoTXT.Text;
+                var bulunanOdemeler = db.OdemeBilgileri.Where(x => x.Odeme_No.Contains(arananNo)).ToList();
+                OdemeGecmisiDataGrid.DataSource = bulunanOdemeler;
+            }
+        }
+
+        // Geçmiş Ödemelerin hepsini listele checkbox
+        private void gecmisOdemeCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (gecmisOdemeCheckBox.Checked == true)
+            {
+                var odemeler = db.OdemeBilgileri.ToList();
+                OdemeGecmisiDataGrid.DataSource = odemeler;
+            }
+            else if (gecmisOdemeCheckBox.Checked == false)
+            {
+                OdemeGecmisiDataGrid.Columns.Clear();
+            }
         }
 
         #endregion

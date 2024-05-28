@@ -118,76 +118,88 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="guncelleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\Üye ve ÇalışanPaneli\guncelleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="odeme" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\Paneller\odeme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="K_ekleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\KitapPaneli\K_ekleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="uye2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\Panel Iconları\Paneller\uye2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="listeleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\Üye ve ÇalışanPaneli\listeleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="calisan21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\Paneller\calisan2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ki_GecmisM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\IconsAImages\Icons\Panel Iconları\KiralamaPaneli\Ki_GecmisM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="K_silM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\KitapPaneli\K_silM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bookshelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\bookshelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="book" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\Paneller\book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="kutuphanepng" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\kutuphanepng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="qwe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\qwe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calisan2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\Panel Iconları\Paneller\calisan2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ekleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\Üye ve ÇalışanPaneli\ekleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="calisan21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\Paneller\calisan2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="calisan22" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\Paneller\calisan2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ki_listeleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\KiralamaPaneli\Ki_listeleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="K_listeleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\KitapPaneli\K_listeleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ki_kiralaM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\KiralamaPaneli\Ki_kiralaM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="K_GuncelleM21" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\KitapPaneli\K_GuncelleM2.2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Ki_GerialM23" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\Panel Iconları\KiralamaPaneli\Ki_GerialM23.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="qwe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\qwe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="kirala" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\Paneller\kirala.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="K_GuncelleM2.2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\KitapPaneli\K_GuncelleM2.2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="KaldirM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icons\Panel Iconları\Üye ve ÇalışanPaneli\KaldirM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="K_ekleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icons\Panel Iconları\KitapPaneli\K_ekleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="listeleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\Üye ve ÇalışanPaneli\listeleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guncelleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\Üye ve ÇalışanPaneli\guncelleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_silM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\KitapPaneli\K_silM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="camera_44" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\IconsAImages\Icons\Book\camera_44.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_listeleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\KitapPaneli\K_listeleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rapor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\IconsAImages\Icons\Panel Iconları\rapor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rapor21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\IconsAImages\Icons\Panel Iconları\rapor2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ekleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\Üye ve ÇalışanPaneli\ekleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ki_listeleM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\KiralamaPaneli\Ki_listeleM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="odeme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\Paneller\odeme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_GuncelleM21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\KitapPaneli\K_GuncelleM2.2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ki_kiralaM2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\KiralamaPaneli\Ki_kiralaM2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kutuphanepng" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\kutuphanepng.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_GuncelleM2.2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\KitapPaneli\K_GuncelleM2.2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kirala" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\Paneller\kirala.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="book" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\Paneller\book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bookshelf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\bookshelf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calisan22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icons\Panel Iconları\Paneller\calisan2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rapor2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\IconsAImages\Icons\Panel Iconları\rapor2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="odemegecmis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\IconsAImages\Icons\Panel Iconları\Rapor Paneli\odemegecmis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

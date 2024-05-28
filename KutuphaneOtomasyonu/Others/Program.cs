@@ -27,6 +27,7 @@ namespace KutuphaneOtomasyonu
 
             //Application.Run(new KiralamaPaneli());
             //Application.Run(new OdemePaneli());
+            //Application.Run(new RaporPaneli());
 
         }
     }

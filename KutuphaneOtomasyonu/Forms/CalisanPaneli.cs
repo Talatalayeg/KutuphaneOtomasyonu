@@ -21,6 +21,8 @@ namespace KutuphaneOtomasyonu
     {
         public string CalisanPaneliKullaniciRolu;
         public string CalisanPaneliKullaniciAdi;
+        //Veri Tabanı bağlantısı
+        KutuphaneOtomasyonuEntities db = new KutuphaneOtomasyonuEntities();
 
         public CalisanPaneli()
         {
@@ -41,8 +43,6 @@ namespace KutuphaneOtomasyonu
             this.Hide();
         }
 
-        //Veri Tabanı bağlantısı
-        KutuphaneOtomasyonuEntities db = new KutuphaneOtomasyonuEntities();
 
         //Form'daki verileri ve Önizleme'deki değerleri sıfırlar
         private void temizle()
@@ -189,8 +189,6 @@ namespace KutuphaneOtomasyonu
         #endregion
 
 
-
-
         /// Kaldır BÖLÜMÜ
 
         #region
@@ -256,8 +254,6 @@ namespace KutuphaneOtomasyonu
         }
 
         #endregion
-
-
 
 
         /// Güncelleme Bölümü
@@ -375,8 +371,6 @@ namespace KutuphaneOtomasyonu
         }
 
         #endregion
-
-
 
 
         /// Listeleme Bölümü
